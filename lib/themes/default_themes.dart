@@ -1,37 +1,57 @@
 import "package:flutter/material.dart";
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
 class LightTheme {
   static final apptheme = ThemeData.light().copyWith(
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Color.fromARGB(255, 254, 222, 225),
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Color.fromARGB(255, 254, 222, 225),
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
       elevation: 0.0,
       color: Colors.transparent,
+      
       titleTextStyle: TextStyle(
-        color: Color.fromARGB(225, 103, 40, 40),
-        fontFamily: GoogleFonts.roboto().fontFamily,
-        fontSize: 22,
+        color: Color.fromARGB(255, 103, 40, 40),
+        fontFamily: 'Sfpro',
+        fontSize: 24,
+        // fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.w700,
       ),
     ),
     // textTheme: TextTheme(
-    //   headline6: TextStyle(
-    //     color: Color.fromARGB(225, 103, 40, 40),
-    //   ),
-    // ),
+    //   bodyLarge: TextStyle(
+    //     color: Color.fromARGB(255, 103, 40, 40),
+    //     fontFamily: 'Sfpro',
+    //     fontSize: 24,
+    //     // fontStyle: FontStyle.italic,
+    //     fontWeight: FontWeight.w700,
+    // )
   );
 }
 
 class DarkTheme {
   static final apptheme = ThemeData.dark().copyWith(
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Color.fromARGB(255, 21, 16, 56),
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Color.fromARGB(255, 21, 16, 56),
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
       elevation: 0.0,
       color: Colors.transparent,
       titleTextStyle: TextStyle(
-          color: Colors.white,
-          fontFamily: 'Sfpro',
-          fontSize: 22,
-          // fontStyle: FontStyle.italic,
-          fontWeight: FontWeight.w700,),
+        color: Colors.white,
+        fontFamily: 'Sfpro',
+        fontSize: 24,
+        // fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.w700,
+      ),
     ),
+
     // textTheme: TextTheme(
     //   headline6: TextStyle(
     //     color: Colors.white,
