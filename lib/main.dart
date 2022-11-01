@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mnbpub/pages/home.dart';
 import 'package:mnbpub/themes/default_themes.dart';
@@ -11,10 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: LightTheme.apptheme,
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    return AdaptiveTheme(
+      light: LightTheme.apptheme,
+      dark: DarkTheme.apptheme,
+      initial: AdaptiveThemeMode.light,
+      builder: (theme, darkTheme) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: LightTheme.apptheme,
+        darkTheme: DarkTheme.apptheme,
+        home: HomePage(),
+      ),
     );
   }
 }

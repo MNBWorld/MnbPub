@@ -13,13 +13,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "MnbPub",
-          style: TextStyle(
-            color: Color.fromARGB(225, 103, 40, 40),
-            fontFamily: GoogleFonts.sourceSerifPro(fontWeight: FontWeight.bold)
-                .fontFamily,
-          ),
         ),
       ),
       body: Container(),
