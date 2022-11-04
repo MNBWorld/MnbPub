@@ -61,7 +61,7 @@ class ThemedStatusBar extends StatelessWidget {
           : const SystemUiOverlayStyle(
               statusBarColor: Color.fromARGB(255, 253, 244, 244),
               statusBarIconBrightness: Brightness.dark,
-              systemNavigationBarColor: Color.fromARGB(255, 254, 238, 227),
+              systemNavigationBarColor: Color.fromARGB(255, 234, 203, 195),
               systemNavigationBarIconBrightness: Brightness.dark,
             ),
       child: child,

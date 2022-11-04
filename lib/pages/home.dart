@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mnbpub/themes/default_themes.dart';
 
@@ -11,6 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return ThemedStatusBar(
       child: SafeArea(
         child: Container(
@@ -25,6 +28,7 @@ class _HomePageState extends State<HomePage> {
           child: Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
+              toolbarHeight: size.height / 14,
               title: Theme.of(context).brightness == Brightness.light
                   ? RichText(
                       text: const TextSpan(
@@ -71,7 +75,43 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            // bottomNavigationBar: ,
+            bottomNavigationBar: Row(
+              children: [
+                SizedBox(
+                  width: size.width,
+                  height: size.height / 10,
+                  child: Stack(
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        child: ClipRRect(
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).brightness ==
+                                        Brightness.light
+                                    ? const Color.fromRGBO(184, 99, 99, 0.28)
+                                    : const Color.fromRGBO(255, 255, 255, 0.05),
+                                border: Border(
+                                  top: BorderSide(
+                                    width: 1,
+                                    color: Theme.of(context).brightness !=
+                                            Brightness.light
+                                        ? Colors.white.withOpacity(0.2)
+                                        : Colors.pink.withOpacity(0.2),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
