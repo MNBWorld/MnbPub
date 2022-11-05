@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:mnbpub/pages/testpage.dart';
 import 'package:mnbpub/themes/default_themes.dart';
 
 class HomePage extends StatefulWidget {
@@ -55,63 +56,73 @@ class _HomePageState extends State<HomePage> {
                       textScaleFactor: 1,
                     ),
             ),
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+            body: Stack(
+              alignment: Alignment.center,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.red,
-                  ),
-                ),
-                Flexible(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(35.0),
-                    child: Container(
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            bottomNavigationBar: Row(
-              children: [
-                SizedBox(
+                Container(
+                  color: Colors.transparent,
                   width: size.width,
-                  height: size.height / 10,
-                  child: Stack(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        child: ClipRRect(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Theme.of(context).brightness ==
-                                        Brightness.light
-                                    ? const Color.fromRGBO(184, 99, 99, 0.28)
-                                    : const Color.fromRGBO(255, 255, 255, 0.05),
-                                border: Border(
-                                  top: BorderSide(
-                                    width: 1,
-                                    color: Theme.of(context).brightness !=
-                                            Brightness.light
-                                        ? Colors.white.withOpacity(0.2)
-                                        : Colors.pink.withOpacity(0.2),
+                  height: size.height,
+                ),
+                Testpage(),
+                // Container(
+                //   color: Colors.purple,
+                //   width: size.width / 2,
+                //   height: size.height / 1.2,
+                // ),
+                Stack(
+                  children: [
+                    Positioned(
+                      bottom: 0,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: size.width,
+                            height: size.height / 10,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: ClipRRect(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                          sigmaX: 15, sigmaY: 15),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.light
+                                              ? const Color.fromRGBO(
+                                                  184, 99, 99, 0.28)
+                                              : const Color.fromRGBO(
+                                                  255, 255, 255, 0.05),
+                                          border: Border(
+                                            top: BorderSide(
+                                              width: 1,
+                                              color: Theme.of(context)
+                                                          .brightness !=
+                                                      Brightness.light
+                                                  ? Colors.white
+                                                      .withOpacity(0.2)
+                                                  : Colors.pink
+                                                      .withOpacity(0.2),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
+                                )
+                              ],
                             ),
                           ),
-                        ),
-                      )
-                    ],
-                  ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
+            // bottomNavigationBar:
           ),
         ),
       ),
