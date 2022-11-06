@@ -1,9 +1,8 @@
-# MnbPub
-This is public app from the master of this github profile. It contains/will contain android widgets, wallpapers and more.
+# <img src="https://user-images.githubusercontent.com/92976860/200189447-685e834a-b9e6-4810-8fe1-9cc0a6229bef.png" width="870">
+➡️ This is public app from the master of this github profile. It contains/will contain android widgets, wallpapers and more.
+<br>[still under development]
 
-[still under development]
-
-## Features
+## Features 📱
 ### Functional:
 none :smiling_face_with_tear:
 ### Not Functional (yet):
