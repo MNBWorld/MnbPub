@@ -64,12 +64,7 @@ class _HomePageState extends State<HomePage> {
                   width: size.width,
                   height: size.height,
                 ),
-                Testpage(),
-                // Container(
-                //   color: Colors.purple,
-                //   width: size.width / 2,
-                //   height: size.height / 1.2,
-                // ),
+                const Testpage(),
                 Stack(
                   children: [
                     Positioned(

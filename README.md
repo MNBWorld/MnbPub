@@ -7,8 +7,12 @@ This is public app from the master of this github profile. It contains/will cont
 ### Functional:
 none :smiling_face_with_tear:
 ### Not Functional (yet):
-:point_right: Always on display
-:point_right: Widgets
-:point_right: Wallpapers
-:point_right: Customizations
-:point_right: Social Feed
+:point_right: **_Always on display_**
+
+:point_right: **_Widgets_**
+
+:point_right: **_Wallpapers_**
+
+:point_right: **_Customizations_**
+
+:point_right: **_Social Feed_**

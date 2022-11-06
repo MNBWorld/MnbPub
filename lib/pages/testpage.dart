@@ -1,100 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Testpage extends StatefulWidget {
+class Testpage extends StatelessWidget {
   const Testpage({super.key});
 
   @override
-  State<Testpage> createState() => _TestpageState();
-}
-
-class _TestpageState extends State<Testpage> {
-  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    // final Size size = MediaQuery.of(context).size;
+    return ListView.builder(
       scrollDirection: Axis.vertical,
-      child: Column(
-        
-        mainAxisAlignment: MainAxisAlignment.center,
+      itemBuilder: (context, index) => Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                flex: 2,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                flex: 2,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                flex: 2,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Flexible(
-                flex: 2,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              ),
-              Flexible(
-                flex: 1,
-                child: Container(
-                  height: 30,
-                  color: Colors.red.shade400,
-                ),
-              )
-            ],
+          Container(
+            color: Colors.amber,
+            width: 32,
+            height: 32,
           ),
         ],
       ),
