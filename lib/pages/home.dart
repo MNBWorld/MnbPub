@@ -30,31 +30,42 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.transparent,
             appBar: AppBar(
               toolbarHeight: size.height / 14,
-              title: Theme.of(context).brightness == Brightness.light
-                  ? RichText(
-                      text: const TextSpan(
-                        text: "MnbPub",
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 103, 40, 40),
-                          fontFamily: 'Sfpro',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      textScaleFactor: 1,
-                    )
-                  : RichText(
-                      text: const TextSpan(
-                        text: "MnbPub",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Sfpro',
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      textScaleFactor: 1,
-                    ),
+              flexibleSpace: Container(
+                alignment: Alignment.centerLeft,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: Theme.of(context).brightness == Brightness.dark
+                        ? AssetImage('assets/images/drk_logo.png')
+                        : AssetImage('assets/images/lgt_logo.png'),
+                    // fit: BoxFit.scaleDown,
+                  ),
+                ),
+              ),
+              // title: Theme.of(context).brightness == Brightness.light
+              //     ? RichText(
+              //         text: const TextSpan(
+              //           text: "MnbPub",
+              //           style: TextStyle(
+              //             color: Color.fromARGB(255, 103, 40, 40),
+              //             fontFamily: 'Sfpro',
+              //             fontSize: 24,
+              //             fontWeight: FontWeight.w700,
+              //           ),
+              //         ),
+              //         textScaleFactor: 1,
+              //       )
+              //     : RichText(
+              //         text: const TextSpan(
+              //           text: "MnbPub",
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //             fontFamily: 'Sfpro',
+              //             fontSize: 24,
+              //             fontWeight: FontWeight.w700,
+              //           ),
+              //         ),
+              //         textScaleFactor: 1,
+              //       ),
             ),
             body: Stack(
               alignment: Alignment.center,

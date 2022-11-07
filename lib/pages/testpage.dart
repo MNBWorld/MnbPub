@@ -14,7 +14,7 @@ class Testpage extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {},
-            child: Text('Switch'),
+            child: const Text('Switch'),
           ),
           Container(
             color: Colors.amber,
