@@ -32,103 +32,65 @@ class _HomePageState extends State<HomePage> {
               toolbarHeight: size.height / 14,
               flexibleSpace: Container(
                 alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: Theme.of(context).brightness == Brightness.dark
-                        ? AssetImage('assets/images/drk_logo.png')
-                        : AssetImage('assets/images/lgt_logo.png'),
-                    // fit: BoxFit.scaleDown,
-                  ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 20),
+                  child: Theme.of(context).brightness == Brightness.dark
+                      ? Image.asset('assets/images/drk_logo.png')
+                      : Image.asset('assets/images/lgt_logo.png'),
                 ),
               ),
-              // title: Theme.of(context).brightness == Brightness.light
-              //     ? RichText(
-              //         text: const TextSpan(
-              //           text: "MnbPub",
-              //           style: TextStyle(
-              //             color: Color.fromARGB(255, 103, 40, 40),
-              //             fontFamily: 'Sfpro',
-              //             fontSize: 24,
-              //             fontWeight: FontWeight.w700,
-              //           ),
-              //         ),
-              //         textScaleFactor: 1,
-              //       )
-              //     : RichText(
-              //         text: const TextSpan(
-              //           text: "MnbPub",
-              //           style: TextStyle(
-              //             color: Colors.white,
-              //             fontFamily: 'Sfpro',
-              //             fontSize: 24,
-              //             fontWeight: FontWeight.w700,
-              //           ),
-              //         ),
-              //         textScaleFactor: 1,
-              //       ),
             ),
             body: Stack(
-              alignment: Alignment.center,
+              fit: StackFit.expand,
               children: [
-                Container(
-                  color: Colors.transparent,
-                  width: size.width,
-                  height: size.height,
-                ),
                 const Testpage(),
-                Stack(
-                  children: [
-                    Positioned(
-                      bottom: 0,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: size.width,
-                            height: size.height / 10,
-                            child: Stack(
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                  child: ClipRRect(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                          sigmaX: 15, sigmaY: 15),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Theme.of(context).brightness ==
+                Positioned(
+                  bottom: 0,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: size.width,
+                        height: size.height / 10,
+                        child: Stack(
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              child: ClipRRect(
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(
+                                    sigmaX: 15,
+                                    sigmaY: 15,
+                                  ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.light
+                                          ? const Color.fromRGBO(
+                                              184, 99, 99, 0.28)
+                                          : const Color.fromRGBO(
+                                              255, 255, 255, 0.05),
+                                      border: Border(
+                                        top: BorderSide(
+                                          width: 1,
+                                          color: Theme.of(context).brightness !=
                                                   Brightness.light
-                                              ? const Color.fromRGBO(
-                                                  184, 99, 99, 0.28)
-                                              : const Color.fromRGBO(
-                                                  255, 255, 255, 0.05),
-                                          border: Border(
-                                            top: BorderSide(
-                                              width: 1,
-                                              color: Theme.of(context)
-                                                          .brightness !=
-                                                      Brightness.light
-                                                  ? Colors.white
-                                                      .withOpacity(0.2)
-                                                  : Colors.pink
-                                                      .withOpacity(0.2),
-                                            ),
-                                          ),
+                                              ? Colors.white.withOpacity(0.2)
+                                              : Colors.pink.withOpacity(0.2),
                                         ),
                                       ),
                                     ),
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
-            // bottomNavigationBar:
           ),
         ),
       ),
