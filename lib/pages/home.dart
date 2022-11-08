@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:mnbpub/components/bottomnavbar.dart';
 import 'package:mnbpub/pages/testpage.dart';
 import 'package:mnbpub/themes/default_themes.dart';
 
@@ -10,6 +9,9 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
+
+int selectedIndex = 0;
+final screen = [TestPage()];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               flexibleSpace: Container(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 20),
+                  padding: const EdgeInsets.only(left: 10, top: 15),
                   child: Theme.of(context).brightness == Brightness.dark
                       ? Image.asset('assets/images/drk_logo.png')
                       : Image.asset('assets/images/lgt_logo.png'),
@@ -42,51 +44,10 @@ class _HomePageState extends State<HomePage> {
             ),
             body: Stack(
               children: [
-                const TestPage(),
+                screen[selectedIndex],
                 Positioned(
                   bottom: 0,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: size.width,
-                        height: size.height / 10,
-                        child: Stack(
-                          children: [
-                            Container(
-                              alignment: Alignment.center,
-                              child: ClipRRect(
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                    sigmaX: 15,
-                                    sigmaY: 15,
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.light
-                                          ? const Color.fromRGBO(
-                                              184, 99, 99, 0.28)
-                                          : const Color.fromRGBO(
-                                              255, 255, 255, 0.05),
-                                      border: Border(
-                                        top: BorderSide(
-                                          width: 1,
-                                          color: Theme.of(context).brightness !=
-                                                  Brightness.light
-                                              ? Colors.white.withOpacity(0.2)
-                                              : Colors.pink.withOpacity(0.2),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: BottomNavBar(),
                 ),
               ],
             ),
