@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:mnbpub/pages/home.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -10,11 +11,18 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
     vsync: this,
-  )..repeat(reverse: true);
+  );
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(2.65, 0.0),
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.easeIn,
+  ));
 
   @override
   void dispose() {
@@ -60,21 +68,22 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
               ),
-              // PositionedTransition(
-              //   rect: ,
-              //   child:
-              Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: Theme.of(context).brightness == Brightness.light
-                        ? const AssetImage('assets/images/lgt_slide.png')
-                        : const AssetImage('assets/images/drk_slide.png'),
-                    fit: BoxFit.fill,
+              SlideTransition(
+                position: _offsetAnimation,
+                child: Container(
+                  width: size.width / 7.45,
+                  // width: 50,
+                  height: size.height / 15.8,
+                  // height: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: Theme.of(context).brightness == Brightness.light
+                          ? const AssetImage('assets/images/lgt_slide.png')
+                          : const AssetImage('assets/images/drk_slide.png'),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-                // ),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,6 +105,10 @@ class _BottomNavBarState extends State<BottomNavBar>
 
   Widget bnbItems(String image, int index, double height) {
     return InkWell(
+      splashColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.white.withOpacity(0.5)
+          : Colors.pink.withOpacity(0.5),
+      enableFeedback: true,
       onTap: () => setState(() {
         selectedIndex = index;
       }),
