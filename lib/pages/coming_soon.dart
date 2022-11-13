@@ -1,5 +1,3 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class ComingSoonPage extends StatelessWidget {
@@ -7,7 +5,7 @@ class ComingSoonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('comming soon'),
     );
   }

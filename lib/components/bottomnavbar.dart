@@ -64,12 +64,12 @@ class _BottomNavBarState extends State<BottomNavBar>
               ),
               SlideTransition(
                 position: Tween<Offset>(
-                  begin: const Offset(-1.0, 0.0),
-                  end: const Offset(1.0, 0.0),
+                  begin: const Offset(-2.96, 0.0),
+                  end: const Offset(2.96, 0.0),
                 ).animate(
                   CurvedAnimation(
                     parent: _controller,
-                    curve: Curves.easeInCubic,
+                    curve: Curves.linear,
                   ),
                 ),
                 child: Container(
@@ -87,7 +87,7 @@ class _BottomNavBarState extends State<BottomNavBar>
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   bnbItems('assets/icons/icn1.png', 0, size.height / 25),
                   bnbItems('assets/icons/icn2.png', 1, size.height / 21),
@@ -114,8 +114,8 @@ class _BottomNavBarState extends State<BottomNavBar>
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
       onTap: () => setState(() {
-        // _selectedIndex = index;
-        _controller.animateTo(index / 5);
+        selectedIndex = index;
+        _controller.animateTo(index / 4);
       }),
       child: Container(
         alignment: Alignment.center,
