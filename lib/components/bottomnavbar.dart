@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mnbpub/pages/home.dart';
+import 'package:mnbpub/utils/utils.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -101,18 +102,14 @@ class _BottomNavBarState extends State<BottomNavBar>
     );
   }
 
-  Widget bnbItems(
-    String image,
-    int index,
-    double height,
-  ) {
+  Widget bnbItems(String image, int index, double height) {
     return InkWell(
       splashColor: Theme.of(context).brightness == Brightness.dark
           ? Colors.white.withOpacity(0.5)
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
       onTap: () => setState(() {
-        // selectedIndex.value = index;
+        selectedIndex.value = index;
         _controller.animateTo(index / 4);
         // print(selectedIndex);
       }),
