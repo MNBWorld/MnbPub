@@ -3,6 +3,7 @@ import 'package:mnbpub/components/bottomnavbar.dart';
 import 'package:mnbpub/pages/coming_soon.dart';
 import 'package:mnbpub/pages/testpage.dart';
 import 'package:mnbpub/themes/default_themes.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,17 +12,16 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-int selectedIndex = 0;
-
 final screen = [
-  ComingSoonPage(),
-  TestPage(),
-  ComingSoonPage(),
-  TestPage(),
-  TestPage(),
+  const ComingSoonPage(),
+  const TestPage(),
+  const ComingSoonPage(),
+  const TestPage(),
+  const TestPage(),
 ];
 
 class _HomePageState extends State<HomePage> {
+  final PageController s = Get.put(PageController());
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             ),
             body: Stack(
               children: [
-                screen[selectedIndex],
+                // screen[Get.put(PageController().)],
                 const Positioned(
                   bottom: 0,
                   child: BottomNavBar(),

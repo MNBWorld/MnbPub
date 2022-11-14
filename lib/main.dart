@@ -1,5 +1,6 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mnbpub/pages/home.dart';
 import 'package:mnbpub/themes/default_themes.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       light: LightTheme.apptheme,
       dark: DarkTheme.apptheme,
       initial: AdaptiveThemeMode.light,
-      builder: (theme, darkTheme) => MaterialApp(
+      builder: (theme, darkTheme) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: LightTheme.apptheme,
         darkTheme: DarkTheme.apptheme,

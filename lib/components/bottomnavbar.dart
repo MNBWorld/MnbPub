@@ -1,12 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:mnbpub/pages/coming_soon.dart';
+import 'package:get/get.dart';
 import 'package:mnbpub/pages/home.dart';
-import 'package:mnbpub/pages/testpage.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
-
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -114,8 +112,9 @@ class _BottomNavBarState extends State<BottomNavBar>
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
       onTap: () => setState(() {
-        selectedIndex = index;
+        // selectedIndex.value = index;
         _controller.animateTo(index / 4);
+        // print(selectedIndex);
       }),
       child: Container(
         alignment: Alignment.center,
