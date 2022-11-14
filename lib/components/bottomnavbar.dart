@@ -1,11 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mnbpub/pages/home.dart';
-import 'package:mnbpub/utils/utils.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  const BottomNavBar({super.key, required this.currentScreen});
+  final ValueNotifier<int> currentScreen;
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -108,11 +107,10 @@ class _BottomNavBarState extends State<BottomNavBar>
           ? Colors.white.withOpacity(0.5)
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
-      onTap: () => setState(() {
-        selectedIndex.value = index;
+      onTap: () { 
+        currentScreen.value = index;
         _controller.animateTo(index / 4);
-        // print(selectedIndex);
-      }),
+      },
       child: Container(
         alignment: Alignment.center,
         width: 50,

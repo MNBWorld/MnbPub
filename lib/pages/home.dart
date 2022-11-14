@@ -3,17 +3,14 @@ import 'package:mnbpub/components/bottomnavbar.dart';
 import 'package:mnbpub/pages/coming_soon.dart';
 import 'package:mnbpub/pages/testpage.dart';
 import 'package:mnbpub/themes/default_themes.dart';
-import 'package:get/get.dart';
-import 'package:mnbpub/utils/utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-var selectedIndex = 0.obs;
+final ValueNotifier<int> currentScreen = ValueNotifier<int>(0);
 final screen = [
   const ComingSoonPage(),
   const TestPage(),
@@ -51,14 +48,17 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            body: Stack(
-              children: [
-                screen[selectedIndex.value],
-                const Positioned(
-                  bottom: 0,
-                  child: BottomNavBar(),
-                ),
-              ],
+            body: ValueListenableBuilder(
+              valueListenable: currentScreen,
+              builder: (context, value, child) => Stack(
+                children: [
+                  screen[currentScreen.value],
+                  Positioned(
+                    bottom: 0,
+                    child: BottomNavBar(currentScreen: currentScreen),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
