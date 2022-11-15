@@ -62,8 +62,8 @@ class _BottomNavBarState extends State<BottomNavBar>
               ),
               SlideTransition(
                 position: Tween<Offset>(
-                  begin: const Offset(-2.96, 0.0),
-                  end: const Offset(2.96, 0.0),
+                  begin: const Offset(-2, 0.0),
+                  end: const Offset(2, 0.0),
                 ).animate(
                   CurvedAnimation(
                     parent: _controller,
@@ -71,14 +71,14 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
                 child: Container(
-                  width: size.width / 7.4,
+                  width: size.width / 5,
                   height: size.height / 15.5,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: Theme.of(context).brightness == Brightness.light
                           ? const AssetImage('assets/images/lgt_slide.png')
                           : const AssetImage('assets/images/drk_slide.png'),
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -107,7 +107,7 @@ class _BottomNavBarState extends State<BottomNavBar>
           ? Colors.white.withOpacity(0.5)
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
-      onTap: () { 
+      onTap: () {
         currentScreen.value = index;
         _controller.animateTo(index / 4);
       },
