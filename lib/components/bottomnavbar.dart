@@ -102,6 +102,7 @@ class _BottomNavBarState extends State<BottomNavBar>
   }
 
   Widget bnbItems(String image, int index, double height) {
+    
     return InkWell(
       splashColor: Theme.of(context).brightness == Brightness.dark
           ? Colors.white.withOpacity(0.5)

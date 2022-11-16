@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 final ValueNotifier<int> currentScreen = ValueNotifier<int>(0);
+
 final screen = [
   const ComingSoonPage(),
   const TestPage(),
