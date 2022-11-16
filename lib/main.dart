@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ///    ↓↓↓ Dark and Light mode {as per system}
     return AdaptiveTheme(
       light: LightTheme.apptheme,
       dark: DarkTheme.apptheme,

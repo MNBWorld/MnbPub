@@ -4,11 +4,13 @@ import 'package:mnbpub/pages/home.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key, required this.currentScreen});
+  /// Index Value⤵
   final ValueNotifier<int> currentScreen;
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
+//// -----------> Bottom Bar Animator <--------------- ////
 class _BottomNavBarState extends State<BottomNavBar>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
@@ -24,9 +26,12 @@ class _BottomNavBarState extends State<BottomNavBar>
 
   @override
   Widget build(BuildContext context) {
+    /// Screen size getter⤵
     final Size size = MediaQuery.of(context).size;
+    ///     ⬇ Bottom Nav Bar
     return Row(
       children: [
+        /// ⬇ Bottom Bar Panel
         SizedBox(
           width: size.width,
           height: size.height / 10,
@@ -35,12 +40,14 @@ class _BottomNavBarState extends State<BottomNavBar>
             children: [
               Container(
                 alignment: Alignment.center,
+                /// Blur⤵
                 child: ClipRRect(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(
                       sigmaX: 15,
                       sigmaY: 15,
                     ),
+                    /// {Themed}⬇ Panel Background 
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).brightness == Brightness.light
@@ -60,6 +67,7 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
               ),
+              /// ⬇ Animation Slide ⬇
               SlideTransition(
                 position: Tween<Offset>(
                   begin: const Offset(-2, 0.0),
@@ -83,6 +91,7 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
               ),
+              /// ⬇ Nav BAr Items ⬇
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -101,17 +110,20 @@ class _BottomNavBarState extends State<BottomNavBar>
     );
   }
 
+  /// -------------> Nav Bar Item Widget <--------------- ///
   Widget bnbItems(String image, int index, double height) {
-    
     return InkWell(
+      /// {Themed} ⬇ onTap Splash ⬇
       splashColor: Theme.of(context).brightness == Brightness.dark
           ? Colors.white.withOpacity(0.5)
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
+      /// ⬇ onTap Function ⬇
       onTap: () {
         currentScreen.value = index;
         _controller.animateTo(index / 4);
       },
+      /// ⬇ Item Widget ⬇
       child: Container(
         alignment: Alignment.center,
         width: 50,

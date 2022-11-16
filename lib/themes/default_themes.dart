@@ -1,15 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
 
+/// ----------------> Light Theme <------------------ ///
 class LightTheme {
   static final apptheme = ThemeData.light().copyWith(
     appBarTheme: const AppBarTheme(
-      // systemOverlayStyle: SystemUiOverlayStyle(
-      //   statusBarColor: Color.fromARGB(255, 253, 244, 244),
-      //   statusBarIconBrightness: Brightness.dark,
-      //   systemNavigationBarColor: Color.fromARGB(255, 254, 238, 227),
-      //   systemNavigationBarIconBrightness: Brightness.dark,
-      // ),
       elevation: 0.0,
       color: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -22,15 +17,10 @@ class LightTheme {
   );
 }
 
+/// ----------------> Dark Theme <------------------ ///
 class DarkTheme {
   static final apptheme = ThemeData.dark().copyWith(
     appBarTheme: const AppBarTheme(
-      // systemOverlayStyle: SystemUiOverlayStyle(
-      //   statusBarColor: Color.fromARGB(255, 21, 16, 56),
-      //   statusBarIconBrightness: Brightness.light,
-      //   systemNavigationBarColor: Color.fromARGB(255, 21, 16, 56),
-      //   systemNavigationBarIconBrightness: Brightness.light,
-      // ),
       elevation: 0.0,
       color: Colors.transparent,
       titleTextStyle: TextStyle(
@@ -43,6 +33,7 @@ class DarkTheme {
   );
 }
 
+/// -------------> System UI Overlay <------------- ///
 class ThemedStatusBar extends StatelessWidget {
   const ThemedStatusBar({super.key, required this.child});
 
