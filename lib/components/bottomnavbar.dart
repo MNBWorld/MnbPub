@@ -4,6 +4,7 @@ import 'package:mnbpub/pages/home.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key, required this.currentScreen});
+
   /// Index Value⤵
   final ValueNotifier<int> currentScreen;
   @override
@@ -28,6 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar>
   Widget build(BuildContext context) {
     /// Screen size getter⤵
     final Size size = MediaQuery.of(context).size;
+
     ///     ⬇ Bottom Nav Bar
     return Row(
       children: [
@@ -40,6 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar>
             children: [
               Container(
                 alignment: Alignment.center,
+
                 /// Blur⤵
                 child: ClipRRect(
                   child: BackdropFilter(
@@ -47,7 +50,8 @@ class _BottomNavBarState extends State<BottomNavBar>
                       sigmaX: 15,
                       sigmaY: 15,
                     ),
-                    /// {Themed}⬇ Panel Background 
+
+                    /// {Themed}⬇ Panel Background
                     child: Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).brightness == Brightness.light
@@ -67,6 +71,7 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
               ),
+
               /// ⬇ Animation Slide ⬇
               SlideTransition(
                 position: Tween<Offset>(
@@ -91,6 +96,7 @@ class _BottomNavBarState extends State<BottomNavBar>
                   ),
                 ),
               ),
+
               /// ⬇ Nav BAr Items ⬇
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +105,7 @@ class _BottomNavBarState extends State<BottomNavBar>
                   bnbItems('assets/icons/icn1.png', 0, size.height / 25),
                   bnbItems('assets/icons/icn2.png', 1, size.height / 21),
                   bnbItems('assets/icons/icn3.png', 2, size.height / 19),
-                  bnbItems('assets/icons/icn4.png', 3, size.height / 34),
+                  bnbItems('assets/icons/icn4.png', 3, size.height / 34, 9.0),
                   bnbItems('assets/icons/icn5.png', 4, size.height / 21),
                 ],
               ),
@@ -111,25 +117,27 @@ class _BottomNavBarState extends State<BottomNavBar>
   }
 
   /// -------------> Nav Bar Item Widget <--------------- ///
-  Widget bnbItems(String image, int index, double height) {
+  Widget bnbItems(String image, int index, double height, [double? pad]) {
     return InkWell(
       /// {Themed} ⬇ onTap Splash ⬇
       splashColor: Theme.of(context).brightness == Brightness.dark
           ? Colors.white.withOpacity(0.5)
           : Colors.pink.withOpacity(0.5),
       enableFeedback: true,
+
       /// ⬇ onTap Function ⬇
       onTap: () {
         currentScreen.value = index;
         _controller.animateTo(index / 4);
       },
+
       /// ⬇ Item Widget ⬇
       child: Container(
         alignment: Alignment.center,
         width: 50,
         height: 50,
         child: Padding(
-          padding: const EdgeInsets.only(top: 5.0),
+          padding: EdgeInsets.only(top: pad ?? 5.0),
           child: Image.asset(
             image,
             height: height,

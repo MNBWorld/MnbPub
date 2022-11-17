@@ -30,6 +30,8 @@ class ComingSoonPage extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
+
+          /// ⬇ Construction Page text ⬇
           Text(
             'Under Construction',
             style: TextStyle(
@@ -42,6 +44,8 @@ class ComingSoonPage extends StatelessWidget {
                   : drkacc,
             ),
           ),
+
+          /// ⬇ Height Adjustor
           const SizedBox(
             height: 100,
           )
