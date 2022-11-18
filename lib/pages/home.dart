@@ -45,18 +45,32 @@ class _HomePageState extends State<HomePage> {
           /// Body ⤵
           child: Scaffold(
             backgroundColor: Colors.transparent,
+
+            /// ⬇ APP BAR ⬇
             appBar: AppBar(
               toolbarHeight: size.height / 14,
+              flexibleSpace: Stack(
+                children: [
+                  /// ⬇ Appbar Border ⬇
+                  Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Theme.of(context).brightness == Brightness.dark
+                        ? Image.asset('assets/images/ln_1.png')
+                        : Image.asset('assets/images/ln_2.png'),
+                  ),
 
-              /// App {themed} Logo⤵
-              flexibleSpace: Container(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 15),
-                  child: Theme.of(context).brightness == Brightness.dark
-                      ? Image.asset('assets/images/drk_logo.png')
-                      : Image.asset('assets/images/lgt_logo.png'),
-                ),
+                  /// ⬇ LOGO ⬇
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(left: 15, top: 15, bottom: 5.0),
+                      child: Theme.of(context).brightness == Brightness.dark
+                          ? Image.asset('assets/images/drk_logo.png')
+                          : Image.asset('assets/images/lgt_logo.png'),
+                    ),
+                  ),
+                ],
               ),
             ),
 

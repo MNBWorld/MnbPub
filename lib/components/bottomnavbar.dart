@@ -75,6 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar>
               /// ⬇ Animation Slide ⬇
               SlideTransition(
                 position: Tween<Offset>(
+                  // {the sum of the |both ofsets| must be 1< total no. of [tabs]}
                   begin: const Offset(-2, 0.0),
                   end: const Offset(2, 0.0),
                 ).animate(

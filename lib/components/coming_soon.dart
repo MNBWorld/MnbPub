@@ -41,7 +41,7 @@ class ComingSoonPage extends StatelessWidget {
               fontSize: size.height / 45,
               color: Theme.of(context).brightness == Brightness.light
                   ? lgtacc
-                  : drkacc,
+                  : appwht,
             ),
           ),
 
