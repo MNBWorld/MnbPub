@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mnbpub/components/bottomnavbar.dart';
 import 'package:mnbpub/components/coming_soon.dart';
+import 'package:mnbpub/pages/customization.dart';
 import 'package:mnbpub/themes/default_themes.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ final ValueNotifier<int> currentScreen = ValueNotifier<int>(0);
 
 /// -> List Of Pages <- ///
 final screen = [
-  const ComingSoonPage(),
+  const CustomisationPage(),
   const ComingSoonPage(),
   const ComingSoonPage(),
   const ComingSoonPage(),
