@@ -75,6 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar>
               /// ⬇ Animation Slide ⬇
               SlideTransition(
                 position: Tween<Offset>(
+                  
                   // {the sum of the |both ofsets| must be 1< total no. of [tabs]}
                   begin: const Offset(-2, 0.0),
                   end: const Offset(2, 0.0),
@@ -119,29 +120,32 @@ class _BottomNavBarState extends State<BottomNavBar>
 
   /// -------------> Nav Bar Item Widget <--------------- ///
   Widget bnbItems(String image, int index, double height, [double? pad]) {
-    return InkWell(
-      /// {Themed} ⬇ onTap Splash ⬇
-      splashColor: Theme.of(context).brightness == Brightness.dark
-          ? Colors.white.withOpacity(0.5)
-          : Colors.pink.withOpacity(0.5),
-      enableFeedback: true,
+    return ValueListenableBuilder(
+      valueListenable: currentScreen,
+      builder: (context, value, child) => InkWell(
+        /// {Themed} ⬇ onTap Splash ⬇
+        splashColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white.withOpacity(0.5)
+            : Colors.pink.withOpacity(0.5),
+        enableFeedback: true,
 
-      /// ⬇ onTap Function ⬇
-      onTap: () {
-        currentScreen.value = index;
-        _controller.animateTo(index / 4);
-      },
+        /// ⬇ onTap Function ⬇
+        onTap: () {
+          currentScreen.value = index;
+          _controller.animateTo(index / 4);
+        },
 
-      /// ⬇ Item Widget ⬇
-      child: Container(
-        alignment: Alignment.center,
-        width: 50,
-        height: 50,
-        child: Padding(
-          padding: EdgeInsets.only(top: pad ?? 5.0),
-          child: Image.asset(
-            image,
-            height: height,
+        /// ⬇ Item Widget ⬇
+        child: Container(
+          alignment: Alignment.center,
+          width: 50,
+          height: 50,
+          child: Padding(
+            padding: EdgeInsets.only(top: pad ?? 5.0),
+            child: Image.asset(
+              image,
+              height: height,
+            ),
           ),
         ),
       ),

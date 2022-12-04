@@ -1,4 +1,4 @@
-package com.example.mnbpub
+package mnbpub.mnbworld
 
 import io.flutter.embedding.android.FlutterActivity
 

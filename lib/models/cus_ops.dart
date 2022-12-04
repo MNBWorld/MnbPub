@@ -3,14 +3,14 @@ class OptionModel {
     Option(
       1,
       'Home Screen Customisation',
-      'Customise your home screen, with various filters, blur effect, etc',
+      'Customise your home screen, with various filters, blur effect, etc.',
       'assets/images/drk_op1.png',
       'assets/images/lgt_op1.png',
     ),
     Option(
       2,
       'Lock Screen Customisation',
-      'Customise your lock screen, with various filters, widgets, fonts, etc',
+      'Customise your lock screen, with various filters, widgets, fonts, etc.',
       'assets/images/drk_op2.png',
       'assets/images/lgt_op2.png',
     ),

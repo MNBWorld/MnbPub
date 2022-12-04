@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 //// --------------------> Index Key <--------------------- ////
 /// {!!!Default value doesn't set the tab item in bottomnavbar!!!}
-final ValueNotifier<int> currentScreen = ValueNotifier<int>(0);
+final ValueNotifier<int> currentScreen = ValueNotifier<int>(2);
 
 /// -> List Of Pages <- ///
 final screen = [
